@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Encryption</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+</head>
+<body>
+
+    <textarea id="texto" placeholder="Ingrese el texto a cifrar"></textarea>
+    <button onclick="cifrar()">Cifrar</button>
+    <textarea id="resultado" placeholder="Resultado del cifrado"></textarea>
+
+    <script>
+        function cifrar() {
+            var textoOriginal = document.getElementById('texto').value;
+
+            // Clave secreta para el cifrado AES (deberías guardarla de forma segura)
+            var claveSecreta = "miClaveSecreta123";
+            
+            // Cifrado AES
+            var textoCifrado = CryptoJS.AES.encrypt(textoOriginal, claveSecreta).toString();
+
+            document.getElementById('resultado').value = textoCifrado;
+        }
+    </script>
+
+</body>
+</html>
